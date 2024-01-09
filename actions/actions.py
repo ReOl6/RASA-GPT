@@ -1,11 +1,35 @@
 from typing import Any, Text, Dict, List
 
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+from rasa_sdk.types import DomainDict
+import pandas as pd
 
 import openai
 
+
+course = pd.read_csv('Course.csv')
+years = ','.join(course.copy()['Year'].astype(str))
+itf = pd.read_csv('06026100.csv')
+
+class ValidateCourseForm(FormValidationAction):
+    def name(self) -> Text:
+        return 'validate_show_course'
+    
+    def validate_year(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate Year"""
+        if slot_value.lower() not in course['Year']:
+            dispatcher.utter_message(text=f'We have only {years} year.')
+            return {'year': None}
+        dispatcher.utter_message(text=f'OK! This is courses of {slot_value} year.')
+        return {'year': slot_value}
 
 class ActionFallback(Action):
 
@@ -43,7 +67,7 @@ class ActionFallback(Action):
         pmt  = prompt + hist_slot + " \n ---\n reply to only this text :"+question
 
         response = openai.Completion.create(
-                engine="text-davinci-003",
+                engine="gpt-3.5-turbo-instruct",
                 prompt= pmt,
                 max_tokens=1024,
                 n=1,

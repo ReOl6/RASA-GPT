@@ -1,17 +1,21 @@
 version: '3.1'
 intents:
-- echo
-- nlu_fallback
-- greet
-- goodbye
 - affirm
-- deny
-- mood_great
-- mood_unhappy
 - bot_challenge
 - checkver
+- deny
+- echo
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- nlu_fallback
+- showcourse
+- showcourse_inform
 - weather
-
+entities:
+- year
+- lecturer
 slots:
   hist_slot:
     type: text
@@ -19,45 +23,49 @@ slots:
     mappings:
     - type: custom
       action: action_echo
-
+  year:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: year
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
+  - text: Hey! How are you?
   utter_weather:
-  - text: "The weather is great today"
-
+  - text: The weather is great today
   utter_ver:
-  - text : "this is rasa+gpt ver 1.2"
-
+  - text: this is rasa+gpt ver 1.2
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
   utter_did_that_help:
-  - text: "Did that help you?"
-
+  - text: Did that help you?
   utter_happy:
-  - text: "Great, carry on!"
-
+  - text: Great, carry on!
   utter_goodbye:
-  - text: "Bye"
-
+  - text: Bye
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-
-
+  - text: I am a bot, powered by Rasa.
+  utter_ask_course:
+  - text: Which course you interested in?
+  utter_ask_year:
+  - text: Which year do you want to observe?
 actions:
+- utter_ask_year
+- utter_did_that_help
 - utter_greet
 - utter_cheer_up
-- utter_did_that_help
 - utter_happy
 - utter_goodbye
 - utter_iamabot
 - action_default_fallback
 - action_echo
-
+- validate_show_course
+forms:
+  show_course:
+    required_slots:
+    - year
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

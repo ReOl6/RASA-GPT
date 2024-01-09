@@ -45,3 +45,36 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - hist_slot: "None\n\n user: hi\nBot: \n\nbot: Hello! I am a language model AI. I am here to help you with any questions you may have about words and their meanings. So, what would you like to know?"
+  - action: utter_greet
+  - intent: showcourse
+  - slot_was_set:
+    - hist_slot: "None\n\n user: hi\nBot: \n\nbot: Hello! I am a language model AI. I am here to help you with any questions you may have about words and their meanings. So, what would you like to know?\n\n user: show course\nBot: \nBot: I'm not sure what you mean by \"show course.\" Could you please provide more context or clarify your question?"
+  - action: utter_ask_year
+  - action: show_course
+  - active_loop: show_course
+  - slot_was_set:
+    - hist_slot: "None\n\n user: hi\nBot: \n\nbot: Hello! I am a language model AI. I am here to help you with any questions you may have about words and their meanings. So, what would you like to know?\n\n user: show course\nBot: \nBot: I'm not sure what you mean by \"show course.\" Could you please provide more context or clarify your question?\n\n user: show course\nBot: \nBot: \n\nI'm not sure what you mean by \"show course.\" Could you please provide more context or clarify your question?"
+  - slot_was_set:
+    - requested_slot: year
+  - intent: showcourse_inform
+    entities:
+    - year: '3'
+  - slot_was_set:
+    - hist_slot: "None\n\n user: hi\nBot: \n\nbot: Hello! I am a language model AI. I am here to help you with any questions you may have about words and their meanings. So, what would you like to know?\n\n user: show course\nBot: \nBot: I'm not sure what you mean by \"show course.\" Could you please provide more context or clarify your question?\n\n user: show course\nBot: \nBot: \n\nI'm not sure what you mean by \"show course.\" Could you please provide more context or clarify your question?\n\n user: 3\nBot: \nBot: \nBot: 3 is a number that comes after 2 and before 4. It is also the number of sides on a triangle. Is there anything else you would like to know about 3?"
+  - slot_was_set:
+    - year: '3'
+  - action: utter_did_that_help

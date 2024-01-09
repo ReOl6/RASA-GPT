@@ -1,6 +1,5 @@
 version: "3.1"
 nlu:
-
 - intent: echo
   examples: |
     - hey
@@ -9,26 +8,22 @@ nlu:
     - ok
     - i want to order a gadget
     - i want a laptop
-
 - intent: weather
   examples: |
     - how is the weather today?
     - tell me the weather
     - weather
-
 - intent: nlu_fallback
   examples: |
     - hey
     - i want to buy a laptop
     - my budget is 20$
-
 - intent: checkver
   examples: |
     - current version
     - bot version now
     - tell me current build
     - what version is this now
-    
 - intent: greet
   examples: |
     - hey
@@ -44,7 +39,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
 - intent: goodbye
   examples: |
     - cu
@@ -57,7 +51,6 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
 - intent: affirm
   examples: |
     - yes
@@ -66,7 +59,6 @@ nlu:
     - of course
     - that sounds good
     - correct
-
 - intent: deny
   examples: |
     - no
@@ -76,7 +68,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -93,7 +84,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -110,10 +100,23 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-
+    - I'm sad so much
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: showcourse
+  examples: |
+    - show me the course
+    - show me course
+    - course
+    - show course
+- intent: showcourse_inform
+  examples: |
+    - show me year [3](year) course
+    - what is year [2](year) course
+    - [3](year)
+    - year [4](year)
+    - [3](year)
