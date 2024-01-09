@@ -43,7 +43,7 @@ class ActionFallback(Action):
         pmt  = prompt + hist_slot + " \n ---\n reply to only this text :"+question
 
         response = openai.Completion.create(
-                engine="text-davinci-003",
+                engine="gpt-3.5-turbo-instruct",
                 prompt= pmt,
                 max_tokens=1024,
                 n=1,
