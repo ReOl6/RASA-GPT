@@ -1,13 +1,11 @@
 version: "3.1"
 nlu:
-- intent: echo
+- intent: what_is_x
   examples: |
-    - hey
-    - what is up
-    - tell me something
-    - ok
-    - i want to order a gadget
-    - i want a laptop
+    - what is 
+    - how is
+    - what are
+    - how are
 - intent: weather
   examples: |
     - how is the weather today?

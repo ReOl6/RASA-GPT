@@ -1,0 +1,20 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-year",
+      "2": "I-year",
+      "3": "L-year",
+      "4": "U-year",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-year": 1,
+      "I-year": 2,
+      "L-year": 3,
+      "U-year": 4,
+      "O": 0
+    },
+    "num_tags": 5
+  }
+]

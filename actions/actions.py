@@ -40,7 +40,7 @@ class ActionFallback(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        openai.api_key = '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'
+        openai.api_key = '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'
 
 
         prompt = """ 

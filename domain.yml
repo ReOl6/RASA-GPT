@@ -4,7 +4,7 @@ intents:
 - bot_challenge
 - checkver
 - deny
-- echo
+- what_is_x
 - goodbye
 - greet
 - mood_great
