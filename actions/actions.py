@@ -10,7 +10,7 @@ import openai
 
 
 course = pd.read_csv('Course.csv')
-years = ','.join(course.copy()['Year'].astype(str))
+years = ','.join(pd.unique(course.copy()['Year']).astype(str))
 itf = pd.read_csv('06026100.csv')
 
 class ValidateCourseForm(FormValidationAction):
@@ -25,7 +25,7 @@ class ValidateCourseForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate Year"""
-        if slot_value.lower() not in course['Year']:
+        if str(slot_value.lower()) not in years:
             dispatcher.utter_message(text=f'We have only {years} year.')
             return {'year': None}
         dispatcher.utter_message(text=f'OK! This is courses of {slot_value} year.')

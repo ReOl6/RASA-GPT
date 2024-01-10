@@ -4,11 +4,10 @@ rules:
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
-  - intent: nlu_fallback
-  - action: action_echo
+  - intent: goodbye
+  - action: utter_goodbye
 
 - rule: Ask for year after user want course
   steps:
   - intent: showcourse
-  - action: utter_ask_year
   - action: show_course
