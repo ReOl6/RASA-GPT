@@ -2,10 +2,11 @@ version: "3.1"
 nlu:
 - intent: what_is_x
   examples: |
-    - what is 
+    - what is
     - how is
     - what are
     - how are
+    - what is dsba kmitl
 - intent: weather
   examples: |
     - how is the weather today?
@@ -16,6 +17,10 @@ nlu:
     - hey
     - i want to buy a laptop
     - my budget is 20$
+    - do you know dsba kmitl
+    - iasod;flkjal;sdja;lsdkfj;a
+    - do you know micheal jeckson
+    - ever heard of michael jordan
 - intent: checkver
   examples: |
     - current version
@@ -117,4 +122,3 @@ nlu:
     - what is year [2](year) course
     - [3](year)
     - year [4](year)
-    - [3](year)

@@ -4,15 +4,16 @@ intents:
 - bot_challenge
 - checkver
 - deny
-- what_is_x
+- echo
 - goodbye
 - greet
 - mood_great
 - mood_unhappy
 - nlu_fallback
+- show_course
 - showcourse
-- showcourse_inform
 - weather
+- what_is_x
 entities:
 - year
 - lecturer
@@ -51,17 +52,22 @@ responses:
   - text: Which course you interested in?
   utter_ask_year:
   - text: Which year do you want to observe?
+  utter_out_of_scope:
+  - text: Sorry, I can't handle that request.
+  utter_default:
+  - text: Sorry I didn't get that. Can you rephrase?
 actions:
-- utter_ask_year
+- utter_default
+- action_echo
 - utter_did_that_help
 - utter_greet
 - utter_cheer_up
 - utter_happy
 - utter_goodbye
 - utter_iamabot
-- action_default_fallback
-- action_echo
+- utter_ask_year
 - validate_show_course
+- action_default_fallback
 forms:
   show_course:
     required_slots:

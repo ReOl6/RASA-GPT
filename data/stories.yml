@@ -36,3 +36,29 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
+
+- story: interactive_story_1
+  steps:
+  - intent: nlu_fallback
+  - slot_was_set:
+    - hist_slot: "None\n\n user: do you know dsba kmitl\nBot:  \n\nI'm sorry, I don't know what \"dsba kmitl\" means. Could you tell me more about it?"
+  - action: utter_default
+  - intent: bot_challenge
+  - slot_was_set:
+    - hist_slot: "None\n\n user: do you know dsba kmitl\nBot:  \n\nI'm sorry, I don't know what \"dsba kmitl\" means. Could you tell me more about it?\n\n user: iasod;flkjal;sdja;lsdkfj;a\nBot: \nBot: I'm sorry, I don't understand what you're trying to say. Could you please rephrase your question or statement?"
+  - intent: nlu_fallback
+  - action: utter_default
+  - intent: what_is_x
+  - slot_was_set:
+    - hist_slot: "None\n\n user: do you know dsba kmitl\nBot:  \n\nI'm sorry, I don't know what \"dsba kmitl\" means. Could you tell me more about it?\n\n user: what is dsba kmitl\nBot: \nBot:\n\nDSBA KMITL stands for \"Data Science and Business Analytics at King Mongkut's Institute of Technology Ladkrabang\". It is an academic program that combines data science and business analytics to prepare students for careers in data-driven industries. Is there anything else you would like to know?"
+  - action: action_echo
+  - slot_was_set:
+    - hist_slot: "None\n\n user: do you know dsba kmitl\nBot:  \n\nI'm sorry, I don't know what \"dsba kmitl\" means. Could you tell me more about it?\n\n user: what is dsba kmitl\nBot: \nBot:\n\nDSBA KMITL stands for \"Data Science and Business Analytics at King Mongkut's Institute of Technology Ladkrabang\". It is an academic program that combines data science and business analytics to prepare students for careers in data-driven industries. Is there anything else you would like to know?\n\n user: what is dsba kmitl\nBot: \nBot: \n\nDSBA KMITL stands for \"Data Science and Business Analytics at King Mongkut's Institute of Technology Ladkrabang\". It is an academic program that combines data science and business analytics to prepare students for careers in data-driven industries. Is there anything else you would like to know?"
+  - intent: nlu_fallback
+  - slot_was_set:
+    - hist_slot: "None\n\n user: do you know dsba kmitl\nBot:  \n\nI'm sorry, I don't know what \"dsba kmitl\" means. Could you tell me more about it?\n\n user: what is dsba kmitl\nBot: \nBot:\n\nDSBA KMITL stands for \"Data Science and Business Analytics at King Mongkut's Institute of Technology Ladkrabang\". It is an academic program that combines data science and business analytics to prepare students for careers in data-driven industries. Is there anything else you would like to know?\n\n user: what is dsba kmitl\nBot: \nBot: \n\nDSBA KMITL stands for \"Data Science and Business Analytics at King Mongkut's Institute of Technology Ladkrabang\". It is an academic program that combines data science and business analytics to prepare students for careers in data-driven industries. Is there anything else you would like to know?\n\n user: do you know micheal jeckson\nBot: \nBot:\n\nYes, I know Michael Jackson. He was an American singer, songwriter, and dancer. He is often referred to as the \"King of Pop\" and is one of the most iconic and influential artists in the history of music. Is there anything else you would like to know?"
+  - action: utter_default
+  - intent: nlu_fallback
+  - slot_was_set:
+    - hist_slot: "None\n\n user: do you know dsba kmitl\nBot:  \n\nI'm sorry, I don't know what \"dsba kmitl\" means. Could you tell me more about it?\n\n user: what is dsba kmitl\nBot: \nBot:\n\nDSBA KMITL stands for \"Data Science and Business Analytics at King Mongkut's Institute of Technology Ladkrabang\". It is an academic program that combines data science and business analytics to prepare students for careers in data-driven industries. Is there anything else you would like to know?\n\n user: what is dsba kmitl\nBot: \nBot: \n\nDSBA KMITL stands for \"Data Science and Business Analytics at King Mongkut's Institute of Technology Ladkrabang\". It is an academic program that combines data science and business analytics to prepare students for careers in data-driven industries. Is there anything else you would like to know?\n\n user: do you know micheal jeckson\nBot: \nBot:\n\nYes, I know Michael Jackson. He was an American singer, songwriter, and dancer. He is often referred to as the \"King of Pop\" and is one of the most iconic and influential artists in the history of music. Is there anything else you would like to know?\n\n user: ever heard of michael jordan\nBot: \nBot: \nBot:\n\nYes, I have heard of Michael Jordan. He is a retired American professional basketball player and is considered one of the greatest players in the history of the sport. Is there anything else you would like to know?"
+  - action: utter_default
